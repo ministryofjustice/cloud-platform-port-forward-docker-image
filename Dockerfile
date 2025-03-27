@@ -1,7 +1,6 @@
-FROM alpine:3.9
+FROM alpine:3.21.3
 
-MAINTAINER David Salgado <david.salgado@digital.justice.gov.uk>
-LABEL MAINTAINER David Salgado <david.salgado@digital.justice.gov.uk>
+LABEL MAINTAINER Cloud Platform <cloud.platform@digital.justice.gov.uk>
 
 RUN apk add --update --no-cache socat \
 	&& rm -rf /var/cache/apk/
