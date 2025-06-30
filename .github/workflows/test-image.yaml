@@ -1,12 +1,12 @@
-name: Publish docker image
+name: Test docker image
 
 on:
-  push:
-    tags:
-    - '*'
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+  workflow_dispatch:
 
 jobs:
-  push_to_registry:
+  test-image-and-actions:
     name: Push image to docker hub
     runs-on: ubuntu-latest
     steps:
@@ -34,5 +34,9 @@ jobs:
         uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
         with:
           context: .
-          push: true
-          tags: ${{ steps.metadata.outputs.tags }}
+          push: false
+          load: true
+          tags: latest
+
+      - run: |
+          docker run --rm --entrypoint=/usr/bin/socat ministryofjustice/port-forward:latest "-V"
