@@ -1,4 +1,4 @@
-name: Publish docker image
+name: Test docker image
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  push_to_registry:
+  test-image-and-actions:
     name: Push image to docker hub
     runs-on: ubuntu-latest
     steps:
