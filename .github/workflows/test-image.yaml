@@ -30,7 +30,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: latest
+          tags: ministryofjustice/port-forward:test
 
       - run: |
-          docker run --rm --entrypoint=/usr/bin/socat ministryofjustice/port-forward:latest "-V"
+          docker run --rm --entrypoint=/usr/bin/socat ministryofjustice/port-forward:test "-V"
