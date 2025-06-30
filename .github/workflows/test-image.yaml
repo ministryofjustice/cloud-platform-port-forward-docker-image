@@ -39,4 +39,4 @@ jobs:
           tags: latest
 
       - run: |
-          docker run --rm ministryofjustice/port-forward:latest -c "socat -V"
+          docker run --rm -it --entrypoint=/usr/bin/socat ministryofjustice/port-forward:latest "-V"
