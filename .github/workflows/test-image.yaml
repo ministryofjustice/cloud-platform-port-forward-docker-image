@@ -7,7 +7,7 @@ on:
 
 jobs:
   test-image-and-actions:
-    name: Push image to docker hub
+    name: Build container and test
     runs-on: ubuntu-latest
     steps:
       - name: checkout
